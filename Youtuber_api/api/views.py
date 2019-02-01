@@ -8,8 +8,11 @@ import django_filters
 class VtuberViewSet(viewsets.ModelViewSet):
     queryset = Vtuber.objects.all()
     serializer_class = VtuberSerializer
+    # api/vtuber?tag=でtag検索対応
+    filter_fields = ('name', 'tag')
 
 
 class YoutuberViewSet(viewsets.ModelViewSet):
     queryset = Youtuber.objects.all()
     serializer_class = YoutuberSerializer
+    filter_fields = ('name', 'tag')
